@@ -1,0 +1,38 @@
+{
+  "name": "calc-plus-plus",
+  "version": "1.0.2",
+  "description": "modern and advanced electron calculator (name based in notepad++ :>)",
+  "main": "index.js",
+  "author": "JoseFernandezDK",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doxdk"
+  },
+  "keywords": ["electron", "calculator", "modern", "calc"],
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-builder",
+    "dist": "electron-builder --win"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^24.6.0"
+  },
+  "build": {
+    "appId": "com.doxdk.calcplusplus",
+    "productName": "Calc++",
+    "files": [
+      "**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "calc.ico"
+    }
+  }
+}

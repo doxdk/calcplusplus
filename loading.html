@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calc++ l0ading screen xd by github.com/doxdk</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #333;
+            z-index: 10;
+        }
+
+        .loader {
+            font-size: 50px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .loader span {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInOut 3s ease-in-out infinite;
+        }
+
+        .loader span:nth-child(1) { animation-delay: 0s; }
+        .loader span:nth-child(2) { animation-delay: 0.5s; }
+        .loader span:nth-child(3) { animation-delay: 1s; }
+        .loader span:nth-child(4) { animation-delay: 1.5s; }
+        .loader span:nth-child(5) { animation-delay: 2s; }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 0.3; transform: scale(1); }
+        }
+
+        .calc-text {
+            font-size: 60px;
+            font-weight: bold;
+            opacity: 0;
+            display: none;
+            text-align: center;
+            animation: fadeInOutCalc 0.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeInOutCalc {
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(0.8); }
+        }
+
+        .hidden {
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; visibility: hidden; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-container">
+        <div class="loader">
+            <span>-</span>
+            <span>+</span>
+            <span>×</span>
+            <span>÷</span>
+            <span>=</span>
+        </div>
+        <div class="calc-text">Calc++</div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            const loader = document.querySelector('.loader');
+            const calcText = document.querySelector('.calc-text');
+            loader.style.display = 'none';
+            calcText.style.display = 'block';
+            calcText.style.animation = 'fadeInOutCalc 2s ease-in-out';
+        }, 3000);
+
+        setTimeout(() => {
+            document.querySelector('.loader-container').classList.add('hidden');
+        }, 5000);
+    </script>
+</body>
+</html>
